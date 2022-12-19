@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUp } from 'redux/auth/operations';
+import { NavLink } from 'react-router-dom';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,8 @@ const RegistrationForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      <NavLink to="/login">Go to login form </NavLink>
     </div>
   );
 };
