@@ -1,1 +1,5 @@
+- persist token
+- redux folder - separate folders for each slice
+- new api for contacts
+- chakra ui styles
 - pagination ?
