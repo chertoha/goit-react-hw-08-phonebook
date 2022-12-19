@@ -1,36 +1,20 @@
-import ContactForm from 'components/ContactForm';
-import ContactList from 'components/ContactList';
-import Container from 'components/Container';
-import Filter from 'components/Filter';
-import Box from '../Box';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import { Route, Routes } from 'react-router';
+import RedirectPage from 'pages/RedirectPage';
+import RegistrationPage from 'pages/RegistrationPage';
+import LoginPage from 'pages/LoginPage';
 
 const App = () => {
   return (
-    <>
-      <Container>
-        <Box as="h1" textAlign="center" pt={3} pb={3}>
-          Phone book
-        </Box>
-      </Container>
-
-      <Container>
-        <ContactForm />
-      </Container>
-
-      <Container>
-        <Box as="h2" textAlign="center">
-          Contacts
-        </Box>
-      </Container>
-
-      <Container>
-        <Filter />
-      </Container>
-
-      <Container>
-        <ContactList />
-      </Container>
-    </>
+    <Routes>
+      <Route path="/">
+        <Route index element={<RedirectPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegistrationPage />} />
+        <Route path="*" element={<RedirectPage />} />
+      </Route>
+    </Routes>
   );
 };
 
