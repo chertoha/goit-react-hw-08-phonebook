@@ -1,5 +1,13 @@
 - persist token
 - redux folder - separate folders for each slice
 - new api for contacts
-- chakra ui styles
+- chakra ui styles:
+    - Login - (main page) + link to reg-page
+    - Reg page - (main page) + link to login-page
+    - Contacts page- (secondary page) + profile menu +   button "+" to add new
+      contact - profile
+    - Profile menu - chakra dropdown (menu name = username, dropdown= email and
+      logout button)
+    -
+
 - pagination ?
