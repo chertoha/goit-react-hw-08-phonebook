@@ -8,6 +8,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
 export const authSlice = createSlice({
@@ -25,21 +26,27 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(signUp.rejected, state => state)
+      .addCase(signUp.rejected, (state, action) => {
+        state.error = action.payload;
+      })
       .addCase(logIn.pending, state => state)
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(logIn.rejected, state => state)
+      .addCase(logIn.rejected, (state, action) => {
+        state.error = action.payload;
+      })
       .addCase(logOut.pending, state => state)
       .addCase(logOut.fulfilled, state => {
         state.user = null;
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logOut.rejected, state => state)
+      .addCase(logOut.rejected, (state, action) => {
+        state.error = action.payload;
+      })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
@@ -48,8 +55,9 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
+        state.error = action.payload;
       });
   },
 });

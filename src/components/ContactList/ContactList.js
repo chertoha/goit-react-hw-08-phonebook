@@ -2,19 +2,19 @@ import Box from 'components/Box';
 import ContactListItem from './ContactListItem';
 import EditFormItem from './EditFormItem';
 import Spinner from 'components/Spinner';
-import { getFilter } from 'redux/filter/slice';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { useSelector } from 'react-redux';
 import { List } from './ContactList.styled';
 import { useState } from 'react';
 import { filterObjectsList } from 'utils/filterObjectsList';
+import { selectFilter } from 'redux/filter/selectors';
 
 const ContactList = () => {
   const { data: contacts, error, isLoading } = useGetContactsQuery();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const [editedId, setEditedId] = useState(null);
 
-  console.log(contacts);
+  // console.log(contacts);
 
   if (isLoading) {
     return (

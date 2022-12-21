@@ -2,11 +2,12 @@ import Box from 'components/Box';
 import { nanoid } from 'nanoid';
 import { Field } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter, setFilter } from 'redux/filter/slice';
+import { setFilter } from 'redux/filter/slice';
+import { selectFilter } from 'redux/filter/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   const filterInputId = nanoid();
 

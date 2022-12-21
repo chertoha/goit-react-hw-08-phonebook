@@ -1,6 +1,5 @@
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import { Route, Routes } from 'react-router';
-import RedirectPage from 'pages/RedirectPage';
+import { Navigate, Route, Routes } from 'react-router';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from 'components/Layout';
@@ -14,18 +13,23 @@ import { useAuth } from 'hooks/useAuth';
 const App = () => {
   const dispatch = useDispatch();
 
-  const { isRefreshing } = useAuth();
+  const { isLoggedIn, isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  const redirectComponent = (
+    <Navigate to={isLoggedIn ? 'contacts' : 'login'} replace />
+  );
 
   return isRefreshing ? (
     <div>Checking user... </div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<RedirectPage />} />
+        {/* <Route index element={<RedirectPage />} /> */}
+        <Route index element={redirectComponent} />
         <Route
           path="contacts"
           element={
@@ -47,7 +51,7 @@ const App = () => {
             />
           }
         />
-        <Route path="*" element={<RedirectPage />} />
+        <Route path="*" element={redirectComponent} />
       </Route>
     </Routes>
   );

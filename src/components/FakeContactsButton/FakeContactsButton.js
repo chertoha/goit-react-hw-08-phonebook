@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {
   useAddContactMutation,
+  useDeleteContactMutation,
   useGetContactsQuery,
 } from 'redux/contacts/contactsApi';
 import { fakeContacts } from 'utils/fakeContacts';
@@ -10,28 +11,35 @@ const FakeContactsButton = ({
   buttonName = 'Fake contacts',
 }) => {
   const [addContact, { isLoading }] = useAddContactMutation();
+  const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   const { data: contacts } = useGetContactsQuery();
 
-  const onClickHendler = async () => {
-    if (contacts.length !== 0) {
-      alert(
-        'Fake contacts can be generated only in empty contacts list. Delete all contacts'
-      );
-    }
-
+  const onAddHandler = async () => {
     if (numberOfContacts > 100) {
       alert('Number of fake contacts cannot be over 100');
+      return;
     }
 
-    for (let i = 0; i < numberOfContacts.length; i++) {
-      console.log(fakeContacts[i]);
-      //   await addContact(fakeContacts[i]);
+    for (let i = 0; i < numberOfContacts; i++) {
+      await addContact(fakeContacts[i]);
     }
   };
 
-  return (
-    <button onClick={onClickHendler} disabled={isLoading}>
+  const onDeleteAllHandler = async () => {
+    await contacts.forEach(({ id }) => {
+      deleteContact(id);
+    });
+  };
+
+  if (!contacts) return;
+
+  return contacts.length > 0 ? (
+    <button onClick={onDeleteAllHandler} disabled={isDeleting}>
+      Delete all contacts
+    </button>
+  ) : (
+    <button onClick={onAddHandler} disabled={isLoading}>
       {buttonName}
     </button>
   );

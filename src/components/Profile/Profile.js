@@ -20,7 +20,7 @@ const Profile = () => {
           <button type="button" onClick={onLogout}>
             Logout
           </button>
-          <FakeContactsButton />
+          <FakeContactsButton numberOfContacts={10} />
         </div>
       </div>
     )
