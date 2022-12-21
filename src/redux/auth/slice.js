@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, signUp } from './operations';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
 
 const initialState = {
   user: null,
@@ -41,3 +43,15 @@ export const authSlice = createSlice({
       .addCase(logOut.rejected, state => state);
   },
 });
+
+//Persisting user & token
+const persistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
+export const authPersistedReducer = persistReducer(
+  persistConfig,
+  authSlice.reducer
+);
