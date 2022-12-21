@@ -6,9 +6,23 @@ import LoginPage from 'pages/LoginPage';
 import Layout from 'components/Layout';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
+import { refreshUser } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useAuth } from 'hooks/useAuth';
 
 const App = () => {
-  return (
+  const dispatch = useDispatch();
+
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <div>Checking user... </div>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<RedirectPage />} />

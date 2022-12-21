@@ -3,7 +3,10 @@ import Button from 'components/Button';
 import Spinner from 'components/Spinner';
 import { nanoid } from 'nanoid';
 import { FormBlock, FormInput, FormLabel } from './ContactForm.styled';
-import { useAddContactMutation, useGetContactsQuery } from 'redux/contactsApi';
+import {
+  useAddContactMutation,
+  useGetContactsQuery,
+} from 'redux/contacts/contactsApi';
 import { useContactsFormFields, useSubmitContactForm } from 'hooks';
 
 const ContactForm = () => {

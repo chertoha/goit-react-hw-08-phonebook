@@ -1,8 +1,7 @@
 import { Navigate } from 'react-router';
 
-const path = false ? 'contacts' : 'login';
-
 const RedirectPage = () => {
+  const path = false ? 'contacts' : 'login';
   return <Navigate to={path} replace />;
 };
 

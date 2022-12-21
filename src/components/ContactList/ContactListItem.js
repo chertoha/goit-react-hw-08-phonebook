@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Box from 'components/Box';
 import Button from 'components/Button';
 import Spinner from 'components/Spinner';
-import { useDeleteContactMutation } from 'redux/contactsApi';
+import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import {
   ListItem,
   Name,

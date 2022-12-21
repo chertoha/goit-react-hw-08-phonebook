@@ -2,8 +2,8 @@ import Box from 'components/Box';
 import ContactListItem from './ContactListItem';
 import EditFormItem from './EditFormItem';
 import Spinner from 'components/Spinner';
-import { getFilter } from 'redux/filterSlice';
-import { useGetContactsQuery } from 'redux/contactsApi';
+import { getFilter } from 'redux/filter/slice';
+import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { useSelector } from 'react-redux';
 import { List } from './ContactList.styled';
 import { useState } from 'react';
@@ -13,6 +13,8 @@ const ContactList = () => {
   const { data: contacts, error, isLoading } = useGetContactsQuery();
   const filter = useSelector(getFilter);
   const [editedId, setEditedId] = useState(null);
+
+  console.log(contacts);
 
   if (isLoading) {
     return (
@@ -34,14 +36,14 @@ const ContactList = () => {
     <Box border="1px solid" borderColor="gray.300" borderRadius={5}>
       {contacts.length > 0 ? (
         <List>
-          {visibleContacts.map(({ id, name, phone }) => {
+          {visibleContacts.map(({ id, name, number }) => {
             if (id === editedId) {
               return (
                 <EditFormItem
                   key={id}
                   contactId={id}
                   oldName={name}
-                  oldPhone={phone}
+                  oldPhone={number}
                   onCancel={() => {
                     setEditedId(null);
                   }}
@@ -54,7 +56,7 @@ const ContactList = () => {
                 key={id}
                 id={id}
                 name={name}
-                phone={phone}
+                phone={number}
                 onEdit={() => {
                   setEditedId(id);
                 }}

@@ -1,4 +1,3 @@
-- persist token
 - redux folder - separate folders for each slice
 - new api for contacts
 - chakra ui styles:
@@ -9,5 +8,6 @@
     - Profile menu - chakra dropdown (menu name = username, dropdown= email and
       logout button)
     -
-
+- remove redirection page
 - pagination ?
+- component Profile - errors if no user = undefined

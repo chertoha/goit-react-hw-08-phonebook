@@ -10,17 +10,17 @@ export const useSubmitContactForm = () => {
 
     const form = event.target;
     const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
+    const number = form.elements.phone.value;
 
     try {
-      const contact = { id: contactId, name, phone };
+      const contact = { id: contactId, name, number };
 
       const validateError = validateContact(contact, contactList);
       if (validateError.status) {
         throw new Error(validateError.message);
       }
 
-      const updatedContact = contactId ? contact : { name, phone };
+      const updatedContact = contactId ? contact : { name, number };
 
       await mutationHandler(updatedContact);
       success();

@@ -2,7 +2,7 @@ import Box from 'components/Box';
 import { nanoid } from 'nanoid';
 import { Field } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter, setFilter } from 'redux/filterSlice';
+import { getFilter, setFilter } from 'redux/filter/slice';
 
 const Filter = () => {
   const dispatch = useDispatch();

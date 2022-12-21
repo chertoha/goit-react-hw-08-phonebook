@@ -1,5 +1,5 @@
 export const validateContact = (contact, contacts) => {
-  const { id = null, name, phone } = contact;
+  const { id = null, name, number } = contact;
 
   const error = {
     status: false,
@@ -9,21 +9,21 @@ export const validateContact = (contact, contacts) => {
   //If full contact existed
   const existedContact = contacts.find(
     contact =>
-      contact.id !== id && contact.name === name && contact.phone === phone
+      contact.id !== id && contact.name === name && contact.number === number
   );
 
   if (existedContact) {
     error.status = true;
-    error.message = `Name: ${existedContact.name} and phone number: ${existedContact.phone} is already existed in contacts`;
+    error.message = `Name: ${existedContact.name} and phone number: ${existedContact.number} is already existed in contacts`;
   }
 
   //If phone nuber existed
   const existedPhoneContact = contacts.find(
-    contact => (contact.id !== id && contact.phone) === phone
+    contact => (contact.id !== id && contact.number) === number
   );
   if (existedPhoneContact) {
     error.status = true;
-    error.message = `Phone number: ${phone} is already belong to contact: ${existedPhoneContact.name}`;
+    error.message = `Phone number: ${number} is already belong to contact: ${existedPhoneContact.name}`;
   }
 
   return error;

@@ -6,7 +6,7 @@ import { useContactsFormFields, useSubmitContactForm } from 'hooks';
 import {
   useGetContactsQuery,
   useUpdateContactMutation,
-} from 'redux/contactsApi';
+} from 'redux/contacts/contactsApi';
 import {
   EditForm,
   Field,
