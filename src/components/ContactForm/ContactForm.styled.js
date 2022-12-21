@@ -5,8 +5,6 @@ export const FormBlock = styled.form`
   margin-bottom: ${p => p.theme.space[5]};
   padding: ${p => p.theme.space[5]};
 
-  /* width: 300px; */
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +26,6 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-  /* width: 200px; */
   width: 100%;
   padding: ${p => p.theme.space[2]};
   margin-bottom: ${p => p.theme.space[5]};

@@ -1,4 +1,5 @@
-import Box from 'components/Box';
+// import Box from 'components/Box';
+import { Box } from '@chakra-ui/react';
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Container from 'components/Container';

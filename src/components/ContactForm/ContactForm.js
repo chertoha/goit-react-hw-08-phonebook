@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from 'components/Button';
+// import Button from 'components/Button';
 import Spinner from 'components/Spinner';
 import { nanoid } from 'nanoid';
-import { FormBlock, FormInput, FormLabel } from './ContactForm.styled';
+// import { FormBlock, FormInput, FormLabel } from './ContactForm.styled';
 import {
   useAddContactMutation,
   useGetContactsQuery,
@@ -23,7 +23,7 @@ const ContactForm = () => {
   const phoneInputId = nanoid();
 
   return (
-    <FormBlock
+    <form
       onSubmit={e => {
         submitContactHandler(e, {
           contactList: contacts,
@@ -32,8 +32,8 @@ const ContactForm = () => {
         });
       }}
     >
-      <FormLabel htmlFor={nameInputId}>Name</FormLabel>
-      <FormInput
+      <label htmlFor={nameInputId}>Name</label>
+      <input
         id={nameInputId}
         type="text"
         name="name"
@@ -44,8 +44,8 @@ const ContactForm = () => {
         onChange={onChangeHandle}
       />
 
-      <FormLabel htmlFor={phoneInputId}>Phone number</FormLabel>
-      <FormInput
+      <label htmlFor={phoneInputId}>Phone number</label>
+      <input
         id={phoneInputId}
         type="tel"
         name="phone"
@@ -56,14 +56,14 @@ const ContactForm = () => {
         onChange={onChangeHandle}
       />
 
-      <Button type="submit" disabled={isSubmitting} size="md">
+      <button type="submit" disabled={isSubmitting} size="md">
         {isSubmitting ? (
           <Spinner type={Spinner.type.BUTTON} />
         ) : (
           <span> Add contact</span>
         )}
-      </Button>
-    </FormBlock>
+      </button>
+    </form>
   );
 };
 

@@ -10,7 +10,7 @@ const Button = ({
   children,
 }) => {
   return (
-    <StyledButton
+    <button
       size={size}
       className="button"
       type={type}
@@ -18,7 +18,7 @@ const Button = ({
       disabled={disabled}
     >
       {children}
-    </StyledButton>
+    </button>
   );
 };
 

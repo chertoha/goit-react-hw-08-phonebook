@@ -1,7 +1,20 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { NavLink } from 'react-router-dom';
+import {
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+  Link,
+  Box,
+} from '@chakra-ui/react';
+
+import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
+import { Link as ReactLink } from 'react-router-dom';
+import Container from 'components/Container';
+// import { Link as ReachLink } from '@reach/router';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -33,31 +46,78 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmitHandler}>
-        <label>
-          E-mail
-          <input
-            type="email"
-            name="email"
-            onChange={onChangeHandler}
-            value={email}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            onChange={onChangeHandler}
-            value={password}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+    <Container>
+      <Box
+        as="form"
+        onSubmit={onSubmitHandler}
+        p={10}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Stack
+          w="100%"
+          spacing={4}
+          p={7}
+          border="1px"
+          borderColor="gray.200"
+          borderRadius={5}
+          // w="400px"
+        >
+          <InputGroup>
+            <InputLeftElement
+              height="100%"
+              pointerEvents="none"
+              children={<AtSignIcon color="gray.300" />}
+            />
+            <Input
+              type="email"
+              name="email"
+              variant="outline"
+              placeholder="E-mail"
+              onChange={onChangeHandler}
+              value={email}
+              size="sm"
+            />
+          </InputGroup>
 
-      <NavLink to="/register"> Go to registration form</NavLink>
-    </div>
+          <InputGroup>
+            <InputLeftElement
+              height="100%"
+              pointerEvents="none"
+              children={<LockIcon color="gray.300" />}
+            />
+            <Input
+              type="password"
+              name="password"
+              variant="outline"
+              placeholder="Password"
+              onChange={onChangeHandler}
+              value={password}
+              size="sm"
+            />
+          </InputGroup>
+
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button
+              // isLoading
+              loadingText="Submitting"
+              colorScheme="teal"
+              variant="outline"
+              type="submit"
+              size="sm"
+              // width="200px"
+            >
+              Submit
+            </Button>
+          </Box>
+
+          <Link as={ReactLink} to="/register" color="teal.500">
+            Registration
+          </Link>
+        </Stack>
+      </Box>
+    </Container>
   );
 };
 

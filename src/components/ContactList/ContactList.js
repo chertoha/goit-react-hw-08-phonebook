@@ -1,4 +1,4 @@
-import Box from 'components/Box';
+// import Box from 'components/Box';
 import ContactListItem from './ContactListItem';
 import EditFormItem from './EditFormItem';
 import Spinner from 'components/Spinner';
@@ -8,6 +8,7 @@ import { List } from './ContactList.styled';
 import { useState } from 'react';
 import { filterObjectsList } from 'utils/filterObjectsList';
 import { selectFilter } from 'redux/filter/selectors';
+import { Box } from '@chakra-ui/react';
 
 const ContactList = () => {
   const { data: contacts, error, isLoading } = useGetContactsQuery();
@@ -35,7 +36,7 @@ const ContactList = () => {
   return (
     <Box border="1px solid" borderColor="gray.300" borderRadius={5}>
       {contacts.length > 0 ? (
-        <List>
+        <ul>
           {visibleContacts.map(({ id, name, number }) => {
             if (id === editedId) {
               return (
@@ -63,7 +64,7 @@ const ContactList = () => {
               />
             );
           })}
-        </List>
+        </ul>
       ) : (
         <p>There are no contacts yet here</p>
       )}

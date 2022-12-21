@@ -1,4 +1,5 @@
-import Box from 'components/Box';
+// import Box from 'components/Box';
+import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 const Container = ({ children }) => {

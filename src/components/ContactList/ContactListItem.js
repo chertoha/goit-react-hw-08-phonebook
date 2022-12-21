@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Box from 'components/Box';
+// import Box from 'components/Box';
 import Button from 'components/Button';
 import Spinner from 'components/Spinner';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
@@ -16,6 +16,7 @@ import { GrEdit } from 'react-icons/gr';
 import { useMediaQuery } from 'react-responsive';
 import { success } from 'utils/notification';
 import { useEffect } from 'react';
+import { Box } from '@chakra-ui/react';
 
 const ContactListItem = ({ id, name, phone, onEdit }) => {
   const [deleteContact, { isLoading: isDeleting, isSuccess }] =
@@ -28,24 +29,24 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
   }, [isSuccess]);
 
   return (
-    <ListItem>
-      <ContactWrapper>
-        <Name>
+    <li>
+      <div>
+        <div>
           <Box as="span">
             <BsFillPersonFill size={14} />
           </Box>
           {name}
-        </Name>
-        <Number>
+        </div>
+        <div>
           <Box as="span">
             <BsFillTelephoneFill size={12} />
           </Box>
 
           {phone}
-        </Number>
-      </ContactWrapper>
+        </div>
+      </div>
 
-      <ToolsWrapper>
+      <div>
         <Button size={isMobile ? 'lg' : 'xs'} type="button" onClick={onEdit}>
           {/* Edit */}
           <GrEdit size={isMobile ? '20' : '14'} />
@@ -66,8 +67,8 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
             <RiDeleteBin6Line size={isMobile ? '20' : '14'} />
           )}
         </Button>
-      </ToolsWrapper>
-    </ListItem>
+      </div>
+    </li>
   );
 };
 
