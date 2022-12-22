@@ -1,28 +1,24 @@
-// import Box from 'components/Box';
-import { Box } from '@chakra-ui/react';
-import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Container from 'components/Container';
 import Filter from 'components/Filter';
+import ModalDefault from 'components/ModalDefault';
+import ContactForm from 'components/ContactForm';
+import { Box, Heading } from '@chakra-ui/react';
 
 const ContactPage = () => {
   return (
     <>
       <Container>
-        <Box as="h1" textAlign="center" pt={3} pb={3}>
+        <Heading as="h1" size="lg">
           Phone book
-        </Box>
+        </Heading>
       </Container>
-
-      <Container>
-        <ContactForm />
-      </Container>
-
+      {/* 
       <Container>
         <Box as="h2" textAlign="center">
           Contacts
         </Box>
-      </Container>
+      </Container> */}
 
       <Container>
         <Filter />
@@ -30,6 +26,14 @@ const ContactPage = () => {
 
       <Container>
         <ContactList />
+      </Container>
+
+      {/* MODAL WINDOW */}
+
+      <Container>
+        <ModalDefault>
+          <ContactForm />
+        </ModalDefault>
       </Container>
     </>
   );

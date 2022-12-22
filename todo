@@ -13,3 +13,7 @@
 
 - auth errors check if it works - LoginForm, RegistrationForm, App(refreshing),
   App (Logout) / Status codes check!
+
+- login & register - titles
+- Profile user menu text sizes
+- spinners 

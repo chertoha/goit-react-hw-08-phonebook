@@ -57,7 +57,7 @@ const LoginForm = () => {
       >
         <Stack
           w="100%"
-          spacing={4}
+          spacing={6}
           p={7}
           border="1px"
           borderColor="gray.200"
@@ -98,7 +98,7 @@ const LoginForm = () => {
             />
           </InputGroup>
 
-          <Box display="flex" alignItems="center" justifyContent="center">
+          <Box display="flex" alignItems="center" justifyContent="flex-start">
             <Button
               // isLoading
               loadingText="Submitting"
@@ -106,15 +106,19 @@ const LoginForm = () => {
               variant="outline"
               type="submit"
               size="sm"
+              pl={6}
+              pr={6}
               // width="200px"
             >
               Submit
             </Button>
           </Box>
 
-          <Link as={ReactLink} to="/register" color="teal.500">
-            Registration
-          </Link>
+          <Box display="flex" alignItems="center" justifyContent="flex-end">
+            <Link as={ReactLink} to="/register" color="teal.500" fontSize="sm">
+              Registration
+            </Link>
+          </Box>
         </Stack>
       </Box>
     </Container>

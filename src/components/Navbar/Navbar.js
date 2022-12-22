@@ -16,7 +16,7 @@ const Navbar = () => {
       )}
 
       {/* {isLoggedIn && <Profile />} */}
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };

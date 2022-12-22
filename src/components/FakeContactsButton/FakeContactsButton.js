@@ -35,13 +35,13 @@ const FakeContactsButton = ({
   if (!contacts) return;
 
   return contacts.length > 0 ? (
-    <button onClick={onDeleteAllHandler} disabled={isDeleting}>
+    <span onClick={onDeleteAllHandler} disabled={isDeleting}>
       Delete all contacts
-    </button>
+    </span>
   ) : (
-    <button onClick={onAddHandler} disabled={isLoading}>
+    <span onClick={onAddHandler} disabled={isLoading}>
       {buttonName}
-    </button>
+    </span>
   );
 };
 
