@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { filterObjectsList } from 'utils/filterObjectsList';
 import { selectFilter } from 'redux/filter/selectors';
-import { Box } from '@chakra-ui/react';
+import { Box, Stack } from '@chakra-ui/react';
 
 const ContactList = () => {
   const { data: contacts, error, isLoading } = useGetContactsQuery();
@@ -35,9 +35,9 @@ const ContactList = () => {
 
   return (
     <>
-      <Box border="1px solid" borderColor="gray.300" borderRadius={5}>
+      <Box>
         {contacts.length > 0 ? (
-          <ul>
+          <Stack spacing={4}>
             {visibleContacts.map(({ id, name, number }) => {
               if (id === editedId) {
                 return (
@@ -65,7 +65,7 @@ const ContactList = () => {
                 />
               );
             })}
-          </ul>
+          </Stack>
         ) : (
           <p>There are no contacts yet here</p>
         )}

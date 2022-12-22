@@ -13,12 +13,6 @@ const ContactPage = () => {
           Phone book
         </Heading>
       </Container>
-      {/* 
-      <Container>
-        <Box as="h2" textAlign="center">
-          Contacts
-        </Box>
-      </Container> */}
 
       <Container>
         <Filter />
@@ -27,8 +21,6 @@ const ContactPage = () => {
       <Container>
         <ContactList />
       </Container>
-
-      {/* MODAL WINDOW */}
 
       <Container>
         <ModalDefault>

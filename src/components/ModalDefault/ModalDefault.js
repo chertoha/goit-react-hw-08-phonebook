@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { AddIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -41,6 +42,10 @@ const ModalDefault = ({ children }) => {
       </Button>
     </>
   );
+};
+
+ModalDefault.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default ModalDefault;

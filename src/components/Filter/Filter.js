@@ -1,6 +1,3 @@
-// import Box from 'components/Box';
-import { nanoid } from 'nanoid';
-// import { Field } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter/slice';
 import { selectFilter } from 'redux/filter/selectors';
@@ -10,8 +7,6 @@ import { Search2Icon } from '@chakra-ui/icons';
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
-
-  const filterInputId = nanoid();
 
   return (
     <Box display="flex" flexDirection="column" pt={4} pb={4}>
