@@ -5,15 +5,20 @@ import Spinner from 'components/Spinner';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { useSelector } from 'react-redux';
 // import { List } from './ContactList.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { filterObjectsList } from 'utils/filterObjectsList';
 import { selectFilter } from 'redux/filter/selectors';
 import { Box, Stack } from '@chakra-ui/react';
 
 const ContactList = () => {
-  const { data: contacts, error, isLoading } = useGetContactsQuery();
+  const { data: contacts, error, isLoading, refetch } = useGetContactsQuery();
   const filter = useSelector(selectFilter);
   const [editedId, setEditedId] = useState(null);
+
+  useEffect(() => {
+    refetch();
+    // console.log('refetch');
+  }, [refetch]);
 
   // console.log(contacts);
 

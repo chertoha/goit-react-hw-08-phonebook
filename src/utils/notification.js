@@ -1,9 +1,9 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 Notify.init({
-  width: '300px',
-  fontSize: '16px',
-  position: 'right-top',
+  width: '250px',
+  fontSize: '14px',
+  position: 'center-center',
 });
 
 export const success = () => {

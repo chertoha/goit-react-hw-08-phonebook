@@ -7,7 +7,7 @@ const Layout = () => {
   // const { isLoggedIn } = useAuth();
 
   return (
-    <Box pb={5}>
+    <Box pb={5} pt={5}>
       {/* {isLoggedIn && <Navbar />} */}
 
       <Outlet />

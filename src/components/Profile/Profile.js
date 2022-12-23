@@ -4,11 +4,11 @@ import {
   Button,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuGroup,
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-import Container from 'components/Container';
 import FakeContactsButton from 'components/FakeContactsButton';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
@@ -30,8 +30,11 @@ const Profile = () => {
         </MenuButton>
         <MenuList>
           <MenuGroup title={user.email}>
-            <MenuItem onClick={onLogout}>Logout</MenuItem>
-            <MenuItem>
+            <MenuItem onClick={onLogout} fontSize="sm">
+              Logout
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem fontSize="sm">
               <FakeContactsButton numberOfContacts={25} />
             </MenuItem>
           </MenuGroup>

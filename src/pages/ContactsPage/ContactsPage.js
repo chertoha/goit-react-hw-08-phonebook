@@ -8,18 +8,28 @@ import Navbar from 'components/Navbar';
 import { AddIcon } from '@chakra-ui/icons';
 import { useMediaQuery } from 'react-responsive';
 import Logo from 'components/Logo';
+import { useEffect, useState } from 'react';
 
 const ContactPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
 
+  const [shouldCloseModal, setShouldCloseModal] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setShouldCloseModal(false);
+    }
+  }, [isOpen]);
+
+  const closeModal = () => {
+    setShouldCloseModal(true);
+  };
+
   return (
     <>
       <Container>
         <Navbar>
-          {/* <Heading as="h1" size="lg">
-            Phone book
-          </Heading> */}
           <Logo />
           <Box display="flex" alignItems="center">
             <Box w="60%" mt={1} display="flex">
@@ -39,8 +49,12 @@ const ContactPage = () => {
       </Container>
 
       <Container>
-        <ModalDefault isOpen={isOpen} onClose={onClose}>
-          <ContactForm />
+        <ModalDefault
+          isOpen={isOpen}
+          onClose={onClose}
+          shouldCloseModal={shouldCloseModal}
+        >
+          <ContactForm onCancel={closeModal} />
         </ModalDefault>
       </Container>
 

@@ -9,6 +9,7 @@ import {
   Stack,
   Link,
   Box,
+  Heading,
 } from '@chakra-ui/react';
 
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
@@ -64,6 +65,9 @@ const LoginForm = () => {
           borderRadius={5}
           // w="400px"
         >
+          <Heading as="h1" fontSize="2xl" color="teal">
+            Login form
+          </Heading>
           <InputGroup>
             <InputLeftElement
               height="100%"

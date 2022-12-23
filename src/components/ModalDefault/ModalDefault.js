@@ -7,8 +7,13 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
-const ModalDefault = ({ children, isOpen, onClose }) => {
+const ModalDefault = ({ children, isOpen, onClose, shouldCloseModal }) => {
+  useEffect(() => {
+    if (shouldCloseModal) onClose();
+  }, [shouldCloseModal, onClose]);
+
   return (
     <>
       <Modal isOpen={isOpen} size="md" onClose={onClose}>

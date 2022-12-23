@@ -13,6 +13,7 @@ import {
   Link,
   Stack,
   Icon,
+  Heading,
 } from '@chakra-ui/react';
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
 import { Link as ReactLink } from 'react-router-dom';
@@ -69,6 +70,9 @@ const RegistrationForm = () => {
           borderRadius={5}
           // w="400px"
         >
+          <Heading as="h1" fontSize="2xl" color="teal">
+            Registration form
+          </Heading>
           <InputGroup>
             <InputLeftElement
               height="100%"

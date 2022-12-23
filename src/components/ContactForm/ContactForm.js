@@ -19,7 +19,7 @@ import {
 import { PhoneIcon } from '@chakra-ui/icons';
 import { BsFillPersonFill } from 'react-icons/bs';
 
-const ContactForm = () => {
+const ContactForm = ({ onCancel }) => {
   const { name, phone, onChangeHandle, resetFields } = useContactsFormFields({
     defaultName: '',
     defaultPhone: '',
@@ -29,16 +29,19 @@ const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
   const [addContact, { isLoading: isSubmitting }] = useAddContactMutation();
 
+  const onSubmitHandler = async e => {
+    await submitContactHandler(e, {
+      contactList: contacts,
+      mutationHandler: addContact,
+      resetFields: resetFields,
+    });
+    onCancel();
+  };
+
   return (
     <Box
       as="form"
-      onSubmit={e => {
-        submitContactHandler(e, {
-          contactList: contacts,
-          mutationHandler: addContact,
-          resetFields: resetFields,
-        });
-      }}
+      onSubmit={onSubmitHandler}
       display="flex"
       alignItems="center"
       justifyContent="center"

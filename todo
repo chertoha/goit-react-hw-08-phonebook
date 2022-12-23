@@ -1,26 +1,22 @@
 - chakra ui styles:
 
-  - Login - (main page) + link to reg-page
-  - Reg page - (main page) + link to login-page
-  - Contacts page- (secondary page) + profile menu + button "+" to add new
-    contact - profile
-  - Profile menu - chakra dropdown (menu name = username, dropdown= email and
-    logout button)
-  -
-
 - pagination ?
 - component Profile - errors if no user = undefined
 
 - auth errors check if it works - LoginForm, RegistrationForm, App(refreshing),
   App (Logout) / Status codes check!
 
-- login & register - titles
-- Profile user menu text sizes
 - spinners
-- phone number - link tel
+
 - delete all contacts - confirmation
-- button add new contact - move to container size
-- modal close on add new contact
+
 - dark theme
-- notifications another place
-- after new registration (login another user) - first render has old contacts
+
+- PropTypes
+- styles for errors Login & registration forms
+- main Box - top padding
+
+- mobile - menu Profile to burger
+
+- add contact button make bigger
+- contact list "No contacts" - styles
