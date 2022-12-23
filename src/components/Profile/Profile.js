@@ -23,23 +23,21 @@ const Profile = () => {
   };
 
   return (
-    <Container>
-      <Box display="flex" alignItems="center" justifyContent="flex-end">
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
-            {user.name}
-          </MenuButton>
-          <MenuList>
-            <MenuGroup title={user.email}>
-              <MenuItem onClick={onLogout}>Logout</MenuItem>
-              <MenuItem>
-                <FakeContactsButton numberOfContacts={10} />
-              </MenuItem>
-            </MenuGroup>
-          </MenuList>
-        </Menu>
-      </Box>
-    </Container>
+    <Box display="flex" alignItems="center" justifyContent="flex-end">
+      <Menu>
+        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
+          {user.name}
+        </MenuButton>
+        <MenuList>
+          <MenuGroup title={user.email}>
+            <MenuItem onClick={onLogout}>Logout</MenuItem>
+            <MenuItem>
+              <FakeContactsButton numberOfContacts={25} />
+            </MenuItem>
+          </MenuGroup>
+        </MenuList>
+      </Menu>
+    </Box>
   );
 };
 

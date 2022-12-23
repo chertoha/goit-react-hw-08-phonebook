@@ -18,3 +18,9 @@
 - Profile user menu text sizes
 - spinners
 - phone number - link tel
+- delete all contacts - confirmation
+- button add new contact - move to container size
+- modal close on add new contact
+- dark theme
+- notifications another place
+- after new registration (login another user) - first render has old contacts

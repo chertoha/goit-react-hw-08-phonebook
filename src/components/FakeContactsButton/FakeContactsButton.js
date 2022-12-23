@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import {
   useAddContactMutation,
@@ -35,13 +36,13 @@ const FakeContactsButton = ({
   if (!contacts) return;
 
   return contacts.length > 0 ? (
-    <span onClick={onDeleteAllHandler} disabled={isDeleting}>
+    <Box as="span" onClick={onDeleteAllHandler} disabled={isDeleting} w="100%">
       Delete all contacts
-    </span>
+    </Box>
   ) : (
-    <span onClick={onAddHandler} disabled={isLoading}>
+    <Box as="span" onClick={onAddHandler} disabled={isLoading} w="100%">
       {buttonName}
-    </span>
+    </Box>
   );
 };
 

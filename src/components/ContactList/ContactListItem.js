@@ -81,7 +81,7 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
   // );
 
   return (
-    <Card variant="filled" size="sm">
+    <Card variant="filled" size="sm" as="li">
       <CardHeader>
         <Heading size="sm"> {name}</Heading>
       </CardHeader>
@@ -89,6 +89,8 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
+        pt={0}
+        pb={0}
       >
         <Box display="flex" alignItems="center" columnGap={2}>
           <PhoneIcon boxSize={3} />
@@ -96,18 +98,18 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
             <a href={`tel: ${phone}`}>{phone}</a>
           </Text>
         </Box>
-        <Box display="flex" alignItems="center" columnGap={2}>
-          <Button colorScheme="teal" variant="solid" onClick={onEdit} size="xs">
+        <Box display="flex" alignItems="center">
+          <Button variant="ghost" onClick={onEdit} size="md" p={2}>
             <EditIcon />
           </Button>
           <Button
-            colorScheme="teal"
-            variant="solid"
+            variant="ghost"
             onClick={() => {
               deleteContact(id);
             }}
             isLoading={isDeleting}
-            size="xs"
+            size="md"
+            p={2}
           >
             <DeleteIcon />
           </Button>

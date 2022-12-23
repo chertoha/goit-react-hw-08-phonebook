@@ -37,7 +37,7 @@ const ContactList = () => {
     <>
       <Box>
         {contacts.length > 0 ? (
-          <Stack spacing={4}>
+          <Stack spacing={4} as="ul">
             {visibleContacts.map(({ id, name, number }) => {
               if (id === editedId) {
                 return (

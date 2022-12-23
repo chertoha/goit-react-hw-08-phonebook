@@ -1,19 +1,14 @@
 import PropTypes from 'prop-types';
-import { AddIcon } from '@chakra-ui/icons';
 import {
-  Button,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  useDisclosure,
 } from '@chakra-ui/react';
 
-const ModalDefault = ({ children }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+const ModalDefault = ({ children, isOpen, onClose }) => {
   return (
     <>
       <Modal isOpen={isOpen} size="md" onClose={onClose}>
@@ -27,25 +22,14 @@ const ModalDefault = ({ children }) => {
           <ModalBody>{children}</ModalBody>
         </ModalContent>
       </Modal>
-
-      <Button
-        onClick={onOpen}
-        w="40px"
-        h="40px"
-        borderRadius="50%"
-        position="fixed"
-        bottom="10%"
-        right="10%"
-        colorScheme="green"
-      >
-        <AddIcon></AddIcon>
-      </Button>
     </>
   );
 };
 
 ModalDefault.propTypes = {
   children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ModalDefault;
