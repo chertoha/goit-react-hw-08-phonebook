@@ -6,6 +6,7 @@ import {
   useGetContactsQuery,
 } from 'redux/contacts/contactsApi';
 import { fakeContacts } from 'utils/fakeContacts';
+import { confirmDeleteAll } from 'utils/notification';
 
 const FakeContactsButton = ({
   numberOfContacts = 100,
@@ -27,9 +28,11 @@ const FakeContactsButton = ({
     }
   };
 
-  const onDeleteAllHandler = async () => {
-    await contacts.forEach(({ id }) => {
-      deleteContact(id);
+  const onDeleteAllHandler = () => {
+    confirmDeleteAll(() => {
+      contacts.forEach(({ id }) => {
+        deleteContact(id);
+      });
     });
   };
 

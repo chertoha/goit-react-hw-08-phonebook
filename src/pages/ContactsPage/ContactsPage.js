@@ -1,14 +1,15 @@
 import ContactList from 'components/ContactList';
 import Container from 'components/Container';
-import Filter from 'components/Filter';
+
 import ModalDefault from 'components/ModalDefault';
 import ContactForm from 'components/ContactForm';
-import { Box, Button, Heading, useDisclosure } from '@chakra-ui/react';
-import Navbar from 'components/Navbar';
+import { Button, useDisclosure } from '@chakra-ui/react';
+
 import { AddIcon } from '@chakra-ui/icons';
 import { useMediaQuery } from 'react-responsive';
-import Logo from 'components/Logo';
+
 import { useEffect, useState } from 'react';
+import Header from 'components/Header';
 
 const ContactPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,22 +27,25 @@ const ContactPage = () => {
     setShouldCloseModal(true);
   };
 
+  const modalOpenButton = (
+    <Button onClick={onOpen} colorScheme="green" size="xs" ml={6}>
+      New contact
+    </Button>
+  );
+
   return (
     <>
       <Container>
-        <Navbar>
+        <Header button={modalOpenButton} />
+        {/* <Navbar>
           <Logo />
           <Box display="flex" alignItems="center">
             <Box w="60%" mt={1} display="flex">
               <Filter type="flushed" iconRight />
             </Box>
-            {!isMobile && (
-              <Button onClick={onOpen} colorScheme="green" size="xs" ml={6}>
-                New contact
-              </Button>
-            )}
+            {!isMobile && modalOpenButton}
           </Box>
-        </Navbar>
+        </Navbar> */}
       </Container>
 
       <Container>
@@ -61,8 +65,8 @@ const ContactPage = () => {
       {isMobile && (
         <Button
           onClick={onOpen}
-          w="40px"
-          h="40px"
+          w="50px"
+          h="50px"
           borderRadius="50%"
           position="fixed"
           bottom="5%"

@@ -1,22 +1,12 @@
-- chakra ui styles:
-
 - pagination ?
-- component Profile - errors if no user = undefined
 
 - auth errors check if it works - LoginForm, RegistrationForm, App(refreshing),
   App (Logout) / Status codes check!
 
 - spinners
 
-- delete all contacts - confirmation
-
-- dark theme
-
 - PropTypes
 - styles for errors Login & registration forms
 - main Box - top padding
 
-- mobile - menu Profile to burger
-
-- add contact button make bigger
 - contact list "No contacts" - styles

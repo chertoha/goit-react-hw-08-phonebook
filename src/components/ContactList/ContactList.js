@@ -12,6 +12,7 @@ import { Box, Stack } from '@chakra-ui/react';
 
 const ContactList = () => {
   const { data: contacts, error, isLoading, refetch } = useGetContactsQuery();
+
   const filter = useSelector(selectFilter);
   const [editedId, setEditedId] = useState(null);
 

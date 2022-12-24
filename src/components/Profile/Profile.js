@@ -22,14 +22,27 @@ const Profile = () => {
     dispatch(logOut());
   };
 
+  const { name, email } = user;
+
+  // const tempName = 'Anton Chertok Yevgenovich';
+
+  const MAX_LETTERS_NUM = 10;
+  let numLetters = window.innerWidth / 3 / 13;
+  numLetters = numLetters > MAX_LETTERS_NUM ? MAX_LETTERS_NUM : numLetters;
+
+  const slicedName =
+    name.length > numLetters + 3
+      ? name.slice(0, numLetters).concat('...')
+      : name;
+
   return (
     <Box display="flex" alignItems="center" justifyContent="flex-end">
       <Menu>
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
-          {user.name}
+          {slicedName}
         </MenuButton>
         <MenuList>
-          <MenuGroup title={user.email}>
+          <MenuGroup title={email}>
             <MenuItem onClick={onLogout} fontSize="sm">
               Logout
             </MenuItem>
