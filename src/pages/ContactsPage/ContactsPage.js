@@ -37,15 +37,6 @@ const ContactPage = () => {
     <>
       <Container>
         <Header button={modalOpenButton} />
-        {/* <Navbar>
-          <Logo />
-          <Box display="flex" alignItems="center">
-            <Box w="60%" mt={1} display="flex">
-              <Filter type="flushed" iconRight />
-            </Box>
-            {!isMobile && modalOpenButton}
-          </Box>
-        </Navbar> */}
       </Container>
 
       <Container>

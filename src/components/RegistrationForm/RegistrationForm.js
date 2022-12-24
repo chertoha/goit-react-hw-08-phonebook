@@ -1,9 +1,8 @@
+import Container from 'components/Container';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUp } from 'redux/auth/operations';
 import { BsFillPersonFill } from 'react-icons/bs';
-
-import Container from 'components/Container';
 import {
   Box,
   Button,

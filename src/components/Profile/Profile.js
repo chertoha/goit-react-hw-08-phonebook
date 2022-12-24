@@ -1,3 +1,4 @@
+import FakeContactsButton from 'components/FakeContactsButton';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -9,7 +10,6 @@ import {
   MenuItem,
   MenuList,
 } from '@chakra-ui/react';
-import FakeContactsButton from 'components/FakeContactsButton';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';

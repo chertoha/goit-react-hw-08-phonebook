@@ -1,3 +1,4 @@
+import Container from 'components/Container';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
@@ -14,8 +15,6 @@ import {
 
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
 import { Link as ReactLink } from 'react-router-dom';
-import Container from 'components/Container';
-// import { Link as ReachLink } from '@reach/router';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -41,7 +40,7 @@ const LoginForm = () => {
       email: email.value,
       password: password.value,
     };
-    // console.log(user);
+
     dispatch(logIn(user));
     resetForm();
   };
@@ -63,7 +62,6 @@ const LoginForm = () => {
           border="1px"
           borderColor="gray.200"
           borderRadius={5}
-          // w="400px"
         >
           <Heading as="h1" fontSize="2xl" color="teal">
             Login form
@@ -104,7 +102,6 @@ const LoginForm = () => {
 
           <Box display="flex" alignItems="center" justifyContent="flex-start">
             <Button
-              // isLoading
               loadingText="Submitting"
               colorScheme="teal"
               variant="outline"
@@ -112,7 +109,6 @@ const LoginForm = () => {
               size="sm"
               pl={6}
               pr={6}
-              // width="200px"
             >
               Submit
             </Button>

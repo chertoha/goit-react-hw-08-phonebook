@@ -1,10 +1,10 @@
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import { Navigate, Route, Routes } from 'react-router';
 import RegistrationPage from 'pages/RegistrationPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from 'components/Layout';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
+import { Navigate, Route, Routes } from 'react-router';
 import { refreshUser } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -28,7 +28,6 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* <Route index element={<RedirectPage />} /> */}
         <Route index element={redirectComponent} />
         <Route
           path="contacts"

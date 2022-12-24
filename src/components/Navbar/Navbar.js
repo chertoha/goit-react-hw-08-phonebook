@@ -1,6 +1,6 @@
 // import { NavLink } from 'react-router-dom';
-import { Box } from '@chakra-ui/react';
 import Profile from 'components/Profile';
+import { Box } from '@chakra-ui/react';
 import { useAuth } from 'hooks/useAuth';
 const Navbar = ({ children }) => {
   const { isLoggedIn } = useAuth();

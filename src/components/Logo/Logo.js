@@ -1,4 +1,4 @@
-import { Box, Heading, Icon, Text } from '@chakra-ui/react';
+import { Box, Heading, Icon } from '@chakra-ui/react';
 import { TiContacts } from 'react-icons/ti';
 
 const Logo = () => {

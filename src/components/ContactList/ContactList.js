@@ -1,10 +1,8 @@
-// import Box from 'components/Box';
 import ContactListItem from './ContactListItem';
 import EditFormItem from './EditFormItem';
 import Spinner from 'components/Spinner';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { useSelector } from 'react-redux';
-// import { List } from './ContactList.styled';
 import { useEffect, useState } from 'react';
 import { filterObjectsList } from 'utils/filterObjectsList';
 import { selectFilter } from 'redux/filter/selectors';
@@ -18,10 +16,7 @@ const ContactList = () => {
 
   useEffect(() => {
     refetch();
-    // console.log('refetch');
   }, [refetch]);
-
-  // console.log(contacts);
 
   if (isLoading) {
     return (

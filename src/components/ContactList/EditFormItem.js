@@ -58,7 +58,6 @@ const EditFormItem = ({ contactId, oldName, oldPhone, onCancel }) => {
         <Box as="form" w="100%" onSubmit={onSubmitHandle}>
           <Box display="flex" flexWrap="wrap" columnGap={5} rowGap={2}>
             <FormControl flexBasis="200px">
-              {/* <FormLabel>Contact name</FormLabel> */}
               <InputGroup>
                 <InputLeftElement
                   height="100%"
@@ -82,7 +81,6 @@ const EditFormItem = ({ contactId, oldName, oldPhone, onCancel }) => {
             </FormControl>
 
             <FormControl flexBasis="200px">
-              {/* <FormLabel>Phone number</FormLabel> */}
               <InputGroup>
                 <InputLeftElement
                   height="100%"
