@@ -44,6 +44,7 @@ const Filter = ({ type = 'outline', iconRight = false }) => {
 
 Filter.propTypes = {
   type: PropTypes.oneOf(['outline', 'filled', 'flushed', 'unstyled']),
+  iconRight: PropTypes.bool,
 };
 
 export default Filter;

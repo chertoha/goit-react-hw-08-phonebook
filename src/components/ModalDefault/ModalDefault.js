@@ -9,7 +9,12 @@ import {
 } from '@chakra-ui/react';
 import { useEffect } from 'react';
 
-const ModalDefault = ({ children, isOpen, onClose, shouldCloseModal }) => {
+const ModalDefault = ({
+  children,
+  isOpen,
+  onClose,
+  shouldCloseModal = false,
+}) => {
   useEffect(() => {
     if (shouldCloseModal) onClose();
   }, [shouldCloseModal, onClose]);
@@ -35,6 +40,7 @@ ModalDefault.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  shouldCloseModal: PropTypes.bool,
 };
 
 export default ModalDefault;

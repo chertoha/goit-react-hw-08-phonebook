@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   useAddContactMutation,
@@ -109,6 +110,10 @@ const ContactForm = ({ onCancel }) => {
       </Stack>
     </Box>
   );
+};
+
+ContactForm.propTypes = {
+  onCancel: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

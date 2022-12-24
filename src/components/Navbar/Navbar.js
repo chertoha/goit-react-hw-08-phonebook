@@ -1,4 +1,4 @@
-// import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Profile from 'components/Profile';
 import { Box } from '@chakra-ui/react';
 import { useAuth } from 'hooks/useAuth';
@@ -11,6 +11,10 @@ const Navbar = ({ children }) => {
       <Box> {isLoggedIn && <Profile />}</Box>
     </Box>
   );
+};
+
+Navbar.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Navbar;
