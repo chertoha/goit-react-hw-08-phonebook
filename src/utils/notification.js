@@ -2,6 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
 
 Notify.init({
+  closeButton: true,
   width: '250px',
   fontSize: '14px',
   position: 'center-center',
