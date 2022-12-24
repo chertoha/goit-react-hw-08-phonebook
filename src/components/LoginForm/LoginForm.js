@@ -73,6 +73,7 @@ const LoginForm = () => {
               children={<AtSignIcon color="gray.300" />}
             />
             <Input
+              required
               type="email"
               name="email"
               variant="outline"
@@ -90,6 +91,7 @@ const LoginForm = () => {
               children={<LockIcon color="gray.300" />}
             />
             <Input
+              required
               type="password"
               name="password"
               variant="outline"
