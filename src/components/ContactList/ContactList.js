@@ -32,7 +32,19 @@ const ContactList = () => {
 
   const visibleContacts = filterObjectsList(filter, contacts, 'name');
 
-  if (visibleContacts.length === 0) return <p>No contacts</p>;
+  if (contacts.length === 0) {
+    return (
+      <Box fontWeight={500} p={3} textAlign="center">
+        No contacts yet
+      </Box>
+    );
+  } else if (visibleContacts.length === 0) {
+    return (
+      <Box fontWeight={500} p={3} textAlign="center">
+        No contacts founded
+      </Box>
+    );
+  }
 
   return (
     <>

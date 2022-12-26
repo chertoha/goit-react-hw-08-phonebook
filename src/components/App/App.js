@@ -4,20 +4,29 @@ import LoginPage from 'pages/LoginPage';
 import Layout from 'components/Layout';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
+import Notify from 'utils/notification';
 import { Navigate, Route, Routes } from 'react-router';
 import { refreshUser } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useAuth } from 'hooks/useAuth';
+import { resetError } from 'redux/auth/slice';
 
 const App = () => {
   const dispatch = useDispatch();
 
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isLoggedIn, isRefreshing, error } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      Notify.failure(`Error: ${error} `);
+      dispatch(resetError());
+    }
+  }, [error, dispatch]);
 
   const redirectComponent = (
     <Navigate to={isLoggedIn ? 'contacts' : 'login'} replace />

@@ -16,6 +16,9 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     // standard reducer logic, with auto-generated action types per reducer
+    resetError(state) {
+      state.error = null;
+    },
   },
   extraReducers: builder => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -73,3 +76,5 @@ export const authPersistedReducer = persistReducer(
   persistConfig,
   authSlice.reducer
 );
+
+export const { resetError } = authSlice.actions;
