@@ -79,6 +79,7 @@ const RegistrationForm = () => {
               children={<Icon as={BsFillPersonFill} color="gray.300" />}
             />
             <Input
+              fontSize="16px"
               required
               type="text"
               name="username"
@@ -97,6 +98,7 @@ const RegistrationForm = () => {
               children={<AtSignIcon color="gray.300" />}
             />
             <Input
+              fontSize="16px"
               required
               type="email"
               name="email"
@@ -115,6 +117,7 @@ const RegistrationForm = () => {
               children={<LockIcon color="gray.300" />}
             />
             <Input
+              fontSize="16px"
               required
               type="password"
               name="password"

@@ -66,6 +66,7 @@ const ContactForm = ({ onCancel }) => {
               variant="outline"
               placeholder="Name"
               size="sm"
+              fontSize="16px"
             />
           </InputGroup>
         </FormControl>
@@ -89,6 +90,7 @@ const ContactForm = ({ onCancel }) => {
               variant="outline"
               placeholder="Phone"
               size="sm"
+              fontSize="16px"
             />
           </InputGroup>
         </FormControl>
