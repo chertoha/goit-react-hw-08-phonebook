@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
-import { success } from 'utils/notification';
+import { confirmDelete, success } from 'utils/notification';
 import { useEffect } from 'react';
 import {
   Box,
@@ -46,7 +46,9 @@ const ContactListItem = ({ id, name, phone, onEdit }) => {
           <Button
             variant="ghost"
             onClick={() => {
-              deleteContact(id);
+              confirmDelete(() => {
+                deleteContact(id);
+              });
             }}
             isLoading={isDeleting}
             size="md"

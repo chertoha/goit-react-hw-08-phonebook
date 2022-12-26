@@ -38,4 +38,18 @@ export const confirmDeleteAll = deleteCallback => {
   );
 };
 
+export const confirmDelete = deleteCallback => {
+  Confirm.show(
+    'Delete confirmation',
+    'Are you sure you want to delete?',
+    'Yes',
+    'No',
+    deleteCallback,
+    () => {
+      return false;
+    },
+    {}
+  );
+};
+
 export default Notify;
